@@ -1,8 +1,10 @@
-require('dotenv').config
+require("dotenv").config()
 const express = require("express");
 const app = express();
 
 app.use(express.json());
+
+const port = process.env.PORT
 
 app.post("/user", (req, res) => {
   const { name, email } = req.body;
@@ -24,6 +26,6 @@ app.get("/search", (req, res) => {
   res.send(id);
 });
 
-app.listen(8000, () => {
-  console.log("listening to server 8000");
+app.listen(port, () => {
+  console.log(`listening to server ${port}`);
 });
